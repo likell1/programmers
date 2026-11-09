@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int swaps = 0;
 int* ptr_swaps = &swaps;
@@ -31,10 +33,12 @@ long long insertion_sort(int A[], int n) {   // 정렬하고 swap 횟수를 반�
 
 int main(void){
 
-    int A[6] = {0};
     int n = 0;
-
     scanf("%d", &n);
+
+    int* A = malloc(n * sizeof(int));
+
+
     for(int i=0; i<n; i++){
         scanf("%d", &A[i]);
     }
@@ -47,5 +51,6 @@ int main(void){
     printf("\n");
     printf("swaps = %d\n", result);
 
+    free(A);
     return 0;
 }
